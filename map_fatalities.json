@@ -1,0 +1,41 @@
+   
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Police Fatalities in United States",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/GeorgeTan615/FIT3179Homework9/main/US_States_SOVI_Infographics.json",
+    "format": {"type": "topojson", "feature": "US_States_SOVI_Infographics"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.STATE_NAME",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/GeorgeTan615/FIT3179Homework9/main/states_fatalities.csv"
+        },
+        "key": "States",
+        "fields": ["Number_of_Fatalities"]
+      }
+    },
+    {"calculate": "datum.Number_of_Fatalities/datum.properties.POPULATION * 1000000", "as": "Number of Police Fatalities per 1 million population"}
+  ],
+  "projection": {"type": "equirectangular"},
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Number of Police Fatalities per 1 million population",
+      "type": "quantitative",
+      "scale": {
+        "type": "threshold",
+        "domain": [15, 30, 50, 70,100],
+        "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603","#792600","#591C01"]
+        }
+    },
+    "tooltip": [
+      {"field": "properties.STATE_NAME", "type": "nominal", "title": "States"},
+      {"field": "Number of Police Fatalities per 1 million population", "type": "quantitative","format":".0f"}
+    ]
+  }
+}

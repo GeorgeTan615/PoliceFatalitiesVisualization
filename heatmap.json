@@ -1,0 +1,55 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "data/updated_police.csv"
+    },
+    "title": "Number of police days in each day throughout years",
+    "config": {
+        "view": {
+            "strokeWidth": 0,
+            "step": 13
+        },
+        "axis": {
+            "domain": false
+        }
+    },
+    "mark": "rect",
+    "encoding": {
+        "x": {
+            "field": "Date",
+            "timeUnit": "date",
+            "type": "ordinal",
+            "title": "Day",
+            "axis": {
+                "labelAngle": 0,
+                "format": "%e"
+            }
+        },
+        "y": {
+            "field": "Date",
+            "timeUnit": "month",
+            "type": "ordinal",
+            "title": "Month"
+        },
+        "color": {
+            "field": "date",
+            "aggregate": "count",
+            "type": "quantitative",
+            "legend": {
+                "title": null
+            },
+            "scale": {
+                "type": "threshold",
+                "domain": [10, 20, 30, 40,50],
+                "range": ["#feebe2", "#fcc5c0", "#fa9fb5", "#f768a1","#c51b8a","#7a0177"]
+                }
+        },
+        "tooltip": [
+            {"field": "Day", "type" : "nominal", "title":"Day"}, 
+            {"timeUnit":"month","field":"Month", "type" : "nominal", "title":"Month"},       
+            {"field": "date", "aggregate": "count", "type": "quantitative","title":"Frequency"}
+          ]
+
+    }
+  }
+  
