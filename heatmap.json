@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {
-        "url": "data/updated_police.csv"
+        "url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/data/updated_police.csv"
     },
     "title": "Number of police days in each day throughout years",
     "config": {
