@@ -8,7 +8,7 @@
       "data": [
         {
           "name": "table",
-          "url" : "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/armed.csv",
+          "url" : "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/data/armed.csv",
           "transform": [
             {
               "type": "countpattern",
