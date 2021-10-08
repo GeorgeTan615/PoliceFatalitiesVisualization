@@ -142,7 +142,7 @@
       "scale": {
         "type": "threshold",
         "domain": [15, 30, 50, 70,100],
-        "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603","#792600","#591C01"]
+        "range": ["#feedde", "#fdd0a2", "#fdae6b", "#fd8d3c","#e6550d","#a63603"]
         }
     },
     "tooltip": [
