@@ -1,23 +1,50 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500, "height":400,
-    "data": {"url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/data/updated_police.csv"},
-    "mark": "area",
-    "encoding": {
-      "x": {
-        "timeUnit": "yearmonth", "field": "Date",
-        "axis": {"domain": false, "format": "%Y", "tickSize": 0}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500, "height":400,
+  "data": {"url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/data/updated_police.csv"},
+  "params": [{
+      "name": "Date_Above",
+      "value" :0,
+      "bind": {
+        "input": "range", "min": 1999,"max": 2015,"step": 1}
       },
-      "y": {
-        "aggregate": "count", "field": "Stages of Life",
-        "axis": null,
-        "stack": "center"
-      },
-      "color": {"field":"Stages of Life", "scale":{"scheme": "set1"}},
-      "tooltip": [
-        {"field": "Stages of Life", "type": "nominal", "title": "Stages of Life"},
-        {"timeUnit": "yearmonth", "field": "Date", "type" : "nominal", "title":"Date"},
-        {"field": "Stages of Life", "aggregate": "count", "type": "quantitative","title":"Frequency"}
-      ]
-    }
+      {
+        "name": "Date_Below",
+        "value" :2017,
+        "bind": {
+          "input": "range", "min": 2001,"max": 2017,"step": 1}
+        }
+    ],
+  "selection":{
+      "stage_highlight":{
+          "type":"multi",
+          "fields":["Stages of Life"],
+          "bind":"legend"
+      }
+  },
+  "transform":[{"filter":"datum.Year > Date_Above"},{"filter":"datum.Year < Date_Below"}],
+
+  
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "timeUnit": "yearmonth", "field": "Date", "title":"Date",
+      "axis": {"domain": false, "format": "%Y", "tickSize": 0}
+    },
+    "y": {
+      "aggregate": "count", "field": "Stages of Life",
+      "axis": null,
+      "stack": "center"
+    },
+    "color": {"field":"Stages of Life", "scale":{"scheme": "set1"}},
+    "opacity": {
+      "condition": {"selection": "stage_highlight", "value": 0.8},
+      "value": 0.2
+    },
+    "tooltip": [
+      {"field": "Stages of Life", "type": "nominal", "title": "Stages of Life"},
+      {"timeUnit": "yearmonth", "field": "Date", "type" : "nominal", "title":"Date"},
+      {"field": "Stages of Life", "aggregate": "count", "type": "quantitative","title":"Number of Police Fatalities"}
+    ]
   }
+}
