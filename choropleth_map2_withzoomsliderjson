@@ -1,0 +1,176 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Police Fatalities in United States",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/topojson/US_States_SOVI_Infographics.json",
+    "format": {"type": "topojson", "feature": "US_States_SOVI_Infographics"}
+  },
+  "params": [
+    {
+      "name": "State_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "California",
+          "Nevada",
+          "New York",
+          "Oregon",
+          "Washington",
+          "Minnesota",
+          "Texas",
+          "Illinois",
+          "Louisiana",
+          "Florida",
+          "North Carolina",
+          "Utah",
+          "Virginia",
+          "Hawaii",
+          "Montana",
+          "Pennsylvania",
+          "Wyoming",
+          "New Jersey",
+          "Alabama",
+          "South Carolina",
+          "Connecticut",
+          "New Mexico",
+          "Wisconsin",
+          "Colorado",
+          "Tennessee",
+          "Ohio",
+          "Arizona",
+          "Rhode Island",
+          "Mississippi",
+          "Maryland",
+          "Missouri",
+          "Kentucky",
+          "Michigan",
+          "Indiana",
+          "Nebraska",
+          "Massachusetts",
+          "Kansas",
+          "Arkansas",
+          "Delaware",
+          "Maine",
+          "Iowa",
+          "Alaska",
+          "Oklahoma",
+          "Vermont",
+          "West Virginia",
+          "New Hampshire",
+          "South Dakota",
+          "North Dakota"
+        ],
+        "labels":[
+          "Show All",
+          "California",
+          "Nevada",
+          "New York",
+          "Oregon",
+          "Washington",
+          "Minnesota",
+          "Texas",
+          "Illinois",
+          "Louisiana",
+          "Florida",
+          "North Carolina",
+          "Utah",
+          "Virginia",
+          "Hawaii",
+          "Montana",
+          "Pennsylvania",
+          "Wyoming",
+          "New Jersey",
+          "Alabama",
+          "South Carolina",
+          "Connecticut",
+          "New Mexico",
+          "Wisconsin",
+          "Colorado",
+          "Tennessee",
+          "Ohio",
+          "Arizona",
+          "Rhode Island",
+          "Mississippi",
+          "Maryland",
+          "Missouri",
+          "Kentucky",
+          "Michigan",
+          "Indiana",
+          "Nebraska",
+          "Massachusetts",
+          "Kansas",
+          "Arkansas",
+          "Delaware",
+          "Maine",
+          "Iowa",
+          "Alaska",
+          "Oklahoma",
+          "Vermont",
+          "West Virginia",
+          "New Hampshire",
+          "South Dakota",
+          "North Dakota"
+        ],
+        "name": "State Selection: "
+      }
+    },
+    {
+      "name": "zoom_level",
+      "value": 500,
+      "bind": {
+        "input": "range",
+        "min": 400,
+        "max": 3000,
+        "step": 10,
+        "name": "Zoom: "
+      }
+    },
+    {
+      "name": "center_to",
+      "value": [-120.7, 47.7],
+      "bind": {
+      "input": "select",
+      "options": [
+      [-120.7, 47.7],[-149.49,64.2],[-107.29,43.07],[-84.27,37.8393],[-155.58,19.89],[-69.44,45.25]
+      ],
+      "labels": ["Washington","Alaska","Wyoming","Kentucky","Hawaii","Maine"],
+      "name": "Map Centre: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "lookup": "properties.STATE_NAME",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/data/states_fatalities.csv"
+        },
+        "key": "States",
+        "fields": ["Number_of_Fatalities"]
+      }
+    },
+    {"filter": "State_selection == null || datum.properties.STATE_NAME == State_selection"},
+    {"calculate": "datum.Number_of_Fatalities/datum.properties.POPULATION * 1000000", "as": "Number of Police Fatalities per 1 million population"}
+  ],
+  "projection": {"type": "equirectangular", "center": {"expr": "center_to"}, "scale": {"expr": "zoom_level"}},
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Number of Police Fatalities per 1 million population",
+      "type": "quantitative",
+      "scale": {
+        "type": "threshold",
+        "domain": [15, 30, 50, 70,100],
+        "range": ["#feedde", "#fdd0a2", "#fdae6b", "#fd8d3c","#e6550d","#a63603"]
+        }
+    },
+    "tooltip": [
+      {"field": "properties.STATE_NAME", "type": "nominal", "title": "States"},
+      {"field": "Number_of_Fatalities", "type": "nominal", "title": "Number of Police Fatalities"},
+      {"field": "Number of Police Fatalities per 1 million population", "type": "quantitative","format":".0f"}
+    ]
+  }
+}
