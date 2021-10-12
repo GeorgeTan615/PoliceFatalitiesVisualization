@@ -1,0 +1,96 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/data/states_fatalities.csv"
+    },
+    "vconcat": [
+      {
+        "title": "Police Fatalities in United States",
+        "width": 800,
+        "height": 600,
+        "projection": {"type": "equirectangular"},
+
+        "layer": [
+          {
+            "data": {
+                "url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/topojson/US_States_SOVI_Infographics.json",
+                "format": {"type": "topojson", "feature": "US_States_SOVI_Infographics"}
+            },
+            "mark": {
+              "type": "geoshape"
+            },
+            "transform": [
+                {
+                    "lookup": "properties.STATE_NAME",
+                    "from": {
+                      "data": {
+                        "url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/data/states_fatalities.csv"
+                      },
+                      "key": "States",
+                      "fields": ["Number_of_Fatalities"]
+                    }
+                  },
+                  {"calculate": "datum.Number_of_Fatalities/datum.properties.POPULATION * 1000000", "as": "Number of Police Fatalities per 1 million population"}
+
+            ],
+            "encoding": {
+                "color": {
+                    "field": "Number of Police Fatalities per 1 million population",
+                    "type": "quantitative",
+                    "scale": {
+                      "type": "threshold",
+                      "domain": [15, 30, 50, 70,100],
+                      "range": ["#feedde", "#fdd0a2", "#fdae6b", "#fd8d3c","#e6550d","#a63603"]
+                      }
+                  },
+              "tooltip": [
+                {"field": "properties.STATE_NAME", "type": "nominal", "title": "States"},
+                {"field": "Number_of_Fatalities", "type": "nominal", "title": "Number of Police Fatalities"},
+                {"field": "Number of Police Fatalities per 1 million population", "type": "quantitative","format":".0f"}
+              ]
+            }
+          },
+          {
+            "layer": [
+              {
+                "transform": [
+                  {
+                    "window": [
+                      {
+                        "op": "rank",
+                        "as": "ranking"
+                      }
+                    ],
+                    "sort": [
+                      {
+                        "field": "Number_of_Fatalities",
+                        "order": "descending"
+                      }
+                    ]
+                  },
+                  {
+                    "filter": "datum.ranking == 1"
+                  },
+                  {
+                    "calculate": "'State with the highest number of police fatalities: ' + datum['States']",
+                    "as": "text_annotation"
+                  }
+                ],
+                "mark": {
+                  "type": "text",
+                  "align": "left",
+                  "dx": 4,
+                  "fill": "black"
+                },
+                "encoding": {
+                  "text": {
+                    "field": "text_annotation"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
