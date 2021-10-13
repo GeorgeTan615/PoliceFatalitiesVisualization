@@ -17,6 +17,140 @@
               "url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/topojson/US_States_SOVI_Infographics.json",
               "format": {"type": "topojson", "feature": "US_States_SOVI_Infographics"}
           },
+          "params": [
+    {
+      "name": "State_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "California",
+          "Nevada",
+          "New York",
+          "Oregon",
+          "Washington",
+          "Minnesota",
+          "Texas",
+          "Illinois",
+          "Louisiana",
+          "Florida",
+          "North Carolina",
+          "Utah",
+          "Virginia",
+          "Hawaii",
+          "Montana",
+          "Pennsylvania",
+          "Wyoming",
+          "New Jersey",
+          "Alabama",
+          "South Carolina",
+          "Connecticut",
+          "New Mexico",
+          "Wisconsin",
+          "Colorado",
+          "Tennessee",
+          "Ohio",
+          "Arizona",
+          "Rhode Island",
+          "Mississippi",
+          "Maryland",
+          "Missouri",
+          "Kentucky",
+          "Michigan",
+          "Indiana",
+          "Nebraska",
+          "Massachusetts",
+          "Kansas",
+          "Arkansas",
+          "Delaware",
+          "Maine",
+          "Iowa",
+          "Alaska",
+          "Oklahoma",
+          "Vermont",
+          "West Virginia",
+          "New Hampshire",
+          "South Dakota",
+          "North Dakota"
+        ],
+        "labels":[
+          "Show All",
+          "California",
+          "Nevada",
+          "New York",
+          "Oregon",
+          "Washington",
+          "Minnesota",
+          "Texas",
+          "Illinois",
+          "Louisiana",
+          "Florida",
+          "North Carolina",
+          "Utah",
+          "Virginia",
+          "Hawaii",
+          "Montana",
+          "Pennsylvania",
+          "Wyoming",
+          "New Jersey",
+          "Alabama",
+          "South Carolina",
+          "Connecticut",
+          "New Mexico",
+          "Wisconsin",
+          "Colorado",
+          "Tennessee",
+          "Ohio",
+          "Arizona",
+          "Rhode Island",
+          "Mississippi",
+          "Maryland",
+          "Missouri",
+          "Kentucky",
+          "Michigan",
+          "Indiana",
+          "Nebraska",
+          "Massachusetts",
+          "Kansas",
+          "Arkansas",
+          "Delaware",
+          "Maine",
+          "Iowa",
+          "Alaska",
+          "Oklahoma",
+          "Vermont",
+          "West Virginia",
+          "New Hampshire",
+          "South Dakota",
+          "North Dakota"
+        ],
+        "name": "State Selection: "
+      }
+    },
+    {
+      "name": "zoom_level",
+      "value": 600,
+      "bind": {
+        "input": "range",
+        "min": 400,
+        "max": 3000,
+        "step": 10,
+        "name": "Zoom: "
+      }
+    },
+    {
+      "name": "center_to",
+      "value": [-120.7, 47.7],
+      "bind": {
+      "input": "select",
+      "options": [
+      [-120.7, 47.7],[-149.49,64.2],[-107.29,43.07],[-84.27,37.8393],[-155.58,19.89],[-69.44,45.25]
+      ],
+      "labels": ["Washington","Alaska","Wyoming","Kentucky","Hawaii","Maine"],
+      "name": "Map Centre: "
+      }
+    }
+  ],
           "mark": {
             "type": "geoshape"
           },
@@ -32,6 +166,7 @@
                     "fields": ["Number_of_Fatalities"]
                   }
                 },
+                {"filter": "State_selection == null || datum.properties.STATE_NAME == State_selection"},
                 {"calculate": "datum.Number_of_Fatalities/datum.properties.POPULATION * 1000000", "as": "Number of Police Fatalities per 1 million population"}
 
           ],
@@ -99,18 +234,24 @@
                 },
                 "mark": {"type": "circle", "tooltip": {"content": "data"}},
                 "encoding": {
-                  "longitude": {"field": "lng", "type": "quantitative"},
+                  "longitude": {"field": "long", "type": "quantitative"},
                   "latitude": {"field": "lat", "type": "quantitative"},
                   "size": {
                     "field": "POPESTIMATE2019",
-                    "type": "quantitative"
+                    "type": "quantitative",
+                    "scale": {"domain": [0, 7000000]}
                   },
                   "color": {
                     "field": "POPESTIMATE2019",
                     "title":"Population",
                     "type": "quantitative",
-                    "scale": {"scheme": "reds"}
-                  }
+                    "scale": {"scheme": "purples"}
+                  },
+                  "tooltip":[
+                    {"field":"STATE","type":"nominal","title":"States"},
+                    {"field":"POPESTIMATE2019","type":"nominal","title":"Population"}
+
+                  ]
                 }
               }
 
