@@ -1,4 +1,16 @@
+html, body{
+	background-color: #Fee2e2;
+}
 #choropleth_map {
+	top:100px;
+	bottom: 100px; 
+	left: 100px;
+	right: 100px;
+	height: 800px;
+	/*width: 800px;*/
+}
+
+#heatmap{
 	top:100px;
 	bottom: 100px; 
 	left: 100px;
@@ -6,3 +18,51 @@
 	/*height: 1000px;
 	width: 800px;*/
 }
+#streamgraph{
+	top:100px;
+	bottom: 100px; 
+	left: 100px;
+	right: 100px;
+	/*height: 1000px;
+	width: 800px;*/
+}
+
+#wordcloud{
+	top:100px;
+	bottom: 100px; 
+	left: 100px;
+	right: 100px;
+	/*height: 1000px;
+	width: 800px;*/
+}
+
+.words {
+	text-align: right;
+	margin: 2rem;
+	align-self: center;
+}
+
+.title {
+	font-family: 'Oswald', sans-serif;
+	text-align: center;
+	margin: 2rem;
+	align-self: center;
+}
+
+.subtitle {
+	font-family: 'Merriweather', serif;
+	text-align: center;
+	margin: 2rem;
+	align-self: center;
+}
+
+.police_title_text{
+	color: #2500e0
+
+}
+
+.fatalities_title_text{
+	color: #bb012d
+}
+
+
