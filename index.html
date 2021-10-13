@@ -11,22 +11,53 @@
     <script src = "wordcloud.js"></script>
     <script src = "heatmap.js"></script>
     <script src = "streamgraph.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
     <link rel="stylesheet" type = "text/css" href="css/styles.css" media="all">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Oswald:wght@600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
 
 
 
 </head>
 
 <body>
-<div id="choropleth_map"></div>
-<div id="wordcloud"></div>
-<div id="heatmap"></div>
-<div id="streamgraph"></div>
+    <div class="title">
+        <div class="title"><span class ="police_title_text">Police</span> <span class = "fatalities_title_text">Fatalities</span> in United States</div>
+    </div>
+
+    
+
+    <div id="choropleth1" data-aos="flip-left" class="pure-g">
+        <div class = "pure-u-1-2">
+            <div id="choropleth_map"></div>
+        </div>
+
+        <div class = "pure-u-1-2">
+            <p>Lorem Ipsum, sometimes referred to as 'lipsum', is the placeholder text used in design when creating content. It helps designers plan out where the content will sit, without needing to wait for the content to be written and approved. It originally comes from a Latin text, but to today's reader, it's seen as gibberish</p>
+        </div>
+
+    </div>
+    
+    
+
+
+    <div id="wordcloud" data-aos="flip-left"></div>
+    <div id="heatmap" data-aos="flip-left"></div>
+    <div id="streamgraph" data-aos="flip-left"></div>
 
 
 
 
 </body>
 
+<script type="text/javascript">
+    AOS.init();
+
+</script>
 </html>
