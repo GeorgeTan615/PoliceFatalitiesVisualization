@@ -4,10 +4,123 @@
     "url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/data/states_fatalities.csv",
     "format": {"parse": {"Number_of_Fatalities": "number"}}    
   },
+  "background":null,
+  "params": [
+    {
+  "name": "State_selection",
+  "bind": {
+    "input": "select",
+    "options": [
+      null,
+      "California",
+      "Nevada",
+      "New York",
+      "Oregon",
+      "Washington",
+      "Minnesota",
+      "Texas",
+      "Illinois",
+      "Louisiana",
+      "Florida",
+      "North Carolina",
+      "Utah",
+      "Virginia",
+      "Hawaii",
+      "Montana",
+      "Pennsylvania",
+      "Wyoming",
+      "New Jersey",
+      "Alabama",
+      "South Carolina",
+      "Connecticut",
+      "New Mexico",
+      "Wisconsin",
+      "Colorado",
+      "Tennessee",
+      "Ohio",
+      "Arizona",
+      "Rhode Island",
+      "Mississippi",
+      "Maryland",
+      "Missouri",
+      "Kentucky",
+      "Michigan",
+      "Indiana",
+      "Nebraska",
+      "Massachusetts",
+      "Kansas",
+      "Arkansas",
+      "Delaware",
+      "Maine",
+      "Iowa",
+      "Alaska",
+      "Oklahoma",
+      "Vermont",
+      "West Virginia",
+      "New Hampshire",
+      "South Dakota",
+      "North Dakota"
+    ],
+    "labels":[
+      "Show All",
+      "California",
+      "Nevada",
+      "New York",
+      "Oregon",
+      "Washington",
+      "Minnesota",
+      "Texas",
+      "Illinois",
+      "Louisiana",
+      "Florida",
+      "North Carolina",
+      "Utah",
+      "Virginia",
+      "Hawaii",
+      "Montana",
+      "Pennsylvania",
+      "Wyoming",
+      "New Jersey",
+      "Alabama",
+      "South Carolina",
+      "Connecticut",
+      "New Mexico",
+      "Wisconsin",
+      "Colorado",
+      "Tennessee",
+      "Ohio",
+      "Arizona",
+      "Rhode Island",
+      "Mississippi",
+      "Maryland",
+      "Missouri",
+      "Kentucky",
+      "Michigan",
+      "Indiana",
+      "Nebraska",
+      "Massachusetts",
+      "Kansas",
+      "Arkansas",
+      "Delaware",
+      "Maine",
+      "Iowa",
+      "Alaska",
+      "Oklahoma",
+      "Vermont",
+      "West Virginia",
+      "New Hampshire",
+      "South Dakota",
+      "North Dakota"
+    ],
+    "name": "State Selection: "
+  }
+}
+],
   "vconcat": [
     {
-      "title": "Police Fatalities in United States",
-      "width": 800,
+      "title": {"text":"Police Fatalities in United States","fontSize":20},
+      "width": "container",
+
       "height": 600,
       "projection": {"type": "equirectangular"},
 
@@ -17,142 +130,9 @@
               "url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/topojson/US_States_SOVI_Infographics.json",
               "format": {"type": "topojson", "feature": "US_States_SOVI_Infographics"}
           },
-          "params": [
-          {
-        "name": "State_selection",
-        "bind": {
-          "input": "select",
-          "options": [
-            null,
-            "California",
-            "Nevada",
-            "New York",
-            "Oregon",
-            "Washington",
-            "Minnesota",
-            "Texas",
-            "Illinois",
-            "Louisiana",
-            "Florida",
-            "North Carolina",
-            "Utah",
-            "Virginia",
-            "Hawaii",
-            "Montana",
-            "Pennsylvania",
-            "Wyoming",
-            "New Jersey",
-            "Alabama",
-            "South Carolina",
-            "Connecticut",
-            "New Mexico",
-            "Wisconsin",
-            "Colorado",
-            "Tennessee",
-            "Ohio",
-            "Arizona",
-            "Rhode Island",
-            "Mississippi",
-            "Maryland",
-            "Missouri",
-            "Kentucky",
-            "Michigan",
-            "Indiana",
-            "Nebraska",
-            "Massachusetts",
-            "Kansas",
-            "Arkansas",
-            "Delaware",
-            "Maine",
-            "Iowa",
-            "Alaska",
-            "Oklahoma",
-            "Vermont",
-            "West Virginia",
-            "New Hampshire",
-            "South Dakota",
-            "North Dakota"
-          ],
-          "labels":[
-            "Show All",
-            "California",
-            "Nevada",
-            "New York",
-            "Oregon",
-            "Washington",
-            "Minnesota",
-            "Texas",
-            "Illinois",
-            "Louisiana",
-            "Florida",
-            "North Carolina",
-            "Utah",
-            "Virginia",
-            "Hawaii",
-            "Montana",
-            "Pennsylvania",
-            "Wyoming",
-            "New Jersey",
-            "Alabama",
-            "South Carolina",
-            "Connecticut",
-            "New Mexico",
-            "Wisconsin",
-            "Colorado",
-            "Tennessee",
-            "Ohio",
-            "Arizona",
-            "Rhode Island",
-            "Mississippi",
-            "Maryland",
-            "Missouri",
-            "Kentucky",
-            "Michigan",
-            "Indiana",
-            "Nebraska",
-            "Massachusetts",
-            "Kansas",
-            "Arkansas",
-            "Delaware",
-            "Maine",
-            "Iowa",
-            "Alaska",
-            "Oklahoma",
-            "Vermont",
-            "West Virginia",
-            "New Hampshire",
-            "South Dakota",
-            "North Dakota"
-          ],
-          "name": "State Selection: "
-        }
-      },
-      {
-        "name": "zoom_level",
-        "value": 600,
-        "bind": {
-          "input": "range",
-          "min": 400,
-          "max": 3000,
-          "step": 10,
-          "name": "Zoom: "
-        }
-      },
-      {
-        "name": "center_to",
-        "value": [-120.7, 47.7],
-        "bind": {
-        "input": "select",
-        "options": [
-        [-120.7, 47.7],[-149.49,64.2],[-107.29,43.07],[-84.27,37.8393],[-155.58,19.89],[-69.44,45.25]
-        ],
-        "labels": ["Washington","Alaska","Wyoming","Kentucky","Hawaii","Maine"],
-        "name": "Map Centre: "
-        }
-      }
-    ],
           "mark": {
-            "type": "geoshape"
+            "type": "geoshape", "stroke": "black",
+            "strokeWidth": 0.3
           },
           "transform": [
               {
@@ -178,7 +158,15 @@
                     "type": "threshold",
                     "domain": [15, 30, 50, 70,100],
                     "range": ["#feedde", "#fdd0a2", "#fdae6b", "#fd8d3c","#e6550d","#a63603"]
-                    }
+                    },
+                    "legend": {
+                      "title": "Number of Police Fatalities per 1 million population",
+                      "titleFontSize":14,
+                      "direction":"horizontal", 
+                      "orient":"bottom", 
+                      "labelFontSize": 15,
+                      "titleLimit":1000
+                  }
                 },
             "tooltip": [
               {"field": "properties.STATE_NAME", "type": "nominal", "title": "States"},
@@ -238,14 +226,31 @@
                   "latitude": {"field": "lat", "type": "quantitative"},
                   "size": {
                     "field": "POPESTIMATE2019",
+                    "title":"Population",
                     "type": "quantitative",
-                    "scale": {"domain": [0, 7000000]}
+                    "scale": {"domain": [0, 15000000]},
+                    "legend": {
+                      "title": "Population",
+                      "titleFontSize":14,
+                      "direction":"horizontal", 
+                      "orient":"bottom", 
+                      "labelFontSize": 15,
+                      "titleLimit":1000
+                  }
                   },
                   "color": {
                     "field": "POPESTIMATE2019",
                     "title":"Population",
                     "type": "quantitative",
-                    "scale": {"scheme": "purples"}
+                    "scale": {"scheme": "purples"},
+                    "legend": {
+                      "title": "Population",
+                      "titleFontSize":14,
+                      "direction":"horizontal", 
+                      "orient":"bottom", 
+                      "labelFontSize": 15,
+                      "titleLimit":1000
+                  }
                   },
                   "tooltip":[
                     {"field":"STATE","type":"nominal","title":"States"},
@@ -263,5 +268,12 @@
          
       ]
     }
-  ]
+  ],
+      "config": {
+        "style": {
+            "cell": {
+                "stroke": null
+            }
+        }
+    }
 }
