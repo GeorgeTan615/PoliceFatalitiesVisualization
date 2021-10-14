@@ -12,6 +12,7 @@
 
     "spacing": 20,
     "bounds": "flush",
+    "params": [{"name": "highlight", "select": "point"}],
     "vconcat": [
       {
       "width":800,
@@ -36,6 +37,19 @@
           },
           "title": ""
         },
+        "stroke": {
+          "condition": {
+            "param": "highlight",
+            "empty": false,
+            "value": "black"
+          },
+          "value": null
+        },
+        "opacity": {
+          "condition": {"param": "highlight", "value": 1},
+          "value": 0.5
+        },
+        "order": {"condition": {"param": "highlight", "value": 1}, "value": 0},
         "color":{"value":"#2500e0"},
         "tooltip": [
             {"field": "Day", "type" : "nominal", "title":"Day"}, 
@@ -43,6 +57,7 @@
           ]
       }
     }, {
+      
       "spacing": 15,
       "bounds": "flush",
       "hconcat": [{
@@ -80,6 +95,19 @@
                     "range": ["#feebe2", "#fcc5c0", "#fa9fb5", "#f768a1","#c51b8a","#7a0177"]
                     }
             },
+            "stroke": {
+              "condition": {
+                "param": "highlight",
+                "empty": false,
+                "value": "black"
+              },
+              "value": null
+            },
+            "opacity": {
+              "condition": {"param": "highlight", "value": 1},
+              "value": 0.5
+            },
+            "order": {"condition": {"param": "highlight", "value": 1}, "value": 0},
             "tooltip": [
                 {"field": "Day", "type" : "nominal", "title":"Day"}, 
                 {"timeUnit":"month","field":"Month", "type" : "nominal", "title":"Month"},       
@@ -110,6 +138,19 @@
             "title": ""
           },
           "color":{"value":"#2500e0"},
+          "stroke": {
+            "condition": {
+              "param": "highlight",
+              "empty": false,
+              "value": "black"
+            },
+            "value": null
+          },
+          "opacity": {
+            "condition": {"param": "highlight", "value": 1},
+            "value": 0.5
+          },
+          "order": {"condition": {"param": "highlight", "value": 1}, "value": 0},
 
           "tooltip": [
             {"timeUnit":"month","field":"Month", "type" : "nominal", "title":"Month"},       
