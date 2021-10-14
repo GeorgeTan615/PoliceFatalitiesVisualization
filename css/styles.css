@@ -1,4 +1,7 @@
-
+.zoom
+{
+    zoom: 35%;
+}
 body{
     max-width: 1700px;
     margin: auto;
