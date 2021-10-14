@@ -27,22 +27,115 @@
 </head>
 
 <body>
+    <div class = "whole_page">
     <div class="title">
-        <div class="title"><span class ="police_title_text">Police</span> <span class = "fatalities_title_text">Fatalities</span> in United States</div>
+        <!--<img src="police4.jpg" alt="Police Image" >-->
+        <div class="title_text"><span class ="police_text">Police</span> <span class = "fatalities_text">Fatalities</span> in United States</div>
+    </div>
+
+    <div class="page">
+            
+        <div data-aos="flip-left" class="pure-g">
+            <div class = "pure-u-1">
+                <span class = "intro">
+                <h1>Introduction</h1>
+                <p><span class = "bold_text"><span class ="police_text">Police</span></span> <span class = "bold_text"><span class = "fatalities_text">Fatalities</span></span>, a.k.a <span class = "bold_text">deaths caused by polices</span>. Over the years, police brutality has always been a very <span class = "bold_text">big issue</span> and this was one of the reasons why 
+                    the movement <span class = "bold_text">Big Lives Matter</span> was formed in 2013(Statista Research Department, 2021). One of the <span class = "bold_text">most controversial</span> police fatalities incident was when an
+                    African-American man, George Floyd, was <span class = "bold_text"><span class = "blood_red">murdered</span></span> by a police as the police <span class = "bold_text">knelt on Floyd's neck</span> for over nine minutes while he was handcuffed(Wikipedia, n.d.). 
+                    <br><br> In this visualization, we will be looking at the data of <span class = "bold_text">police fatalities throughout the years</span>.
+                    
+                </p>
+                </span>
+
+            </div>
+            <div id = "vis_container1">
+                <div class="section">
+                <div class = "pure-u-1">
+                    <h1>Number of police fatalities in the United States</h1>
+                    <p>In this combo map, we are able to visualize the number of <span class = "bold_text"><span class = "police_text">police</span> <span class = "fatalities_text">fatalities</span> in the states of US per 1 million population</span> along with the <span class = "bold_text">population of each state</span>. We can clearly
+                        see that the state that has the darkest colour, which is <span class = "bold_text">Wyoming</span>, has the <span class = "bold_text">highest number of police fatalities per 1 million population</span>. It is also noticeable that some states
+                        <span class = "bold_text">do not have a circle plotted in it</span> despite the state being very huge, <span class = "bold_text">Alaska</span> is one of the best examples. Despite <span class = "bold_text">California</span> being the state with the <span class = "bold_text">largest population</span>, it also 
+                        does not have the highest number of police fatalities per 1 million population.
+                        <br><br><br><br>
+                    </p>
+                    <div id = "choropleth_map" class="vis"></div>
+                </div>
+            </div>
+            </div>
+
+            
+
+            <div id = "vis_container2">
+
+            <div class="section">
+                <div class = "pure-u-1">
+                    <h1>Police Fatalities in each day throughout each month (2000-2016)</h1>
+    
+                </div>
+    
+                <div class = "pure-u-2-3">
+                    <div id="heatmap" class = "vis"></div>
+                </div>
+
+                <div class = "pure-u-1-3">
+                    <p class = "body_text">Here, we have a heatmap which showcases the <span class = "bold_text">number of <span class = "fatalities_text">fatalites</span> in each day in throughout each month from 2000 to 2016</span>.
+                        First of all, just by observing the colour of the heatmap, we can see that overall the colour of the grids from January to August have generally more
+                        <span class = "bold_text">darker</span> color grid boxes. However starting from September to December, the overall color of the grid boxes are becoming <span class = "bold_text">lighter</span>. Upon having this
+                        observation, we can also see the bar chart on the right which shows the sum of number of police fatalities of each month and the number of police fatalities 
+                        are <span class = "bold_text">indeed declining starting from September</span>. Although the reason may not be clear on why this would happen, it may be due to <span class = "bold_text">seasonal pattern during that time, which is Autumn</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id = "vis_container3">
+
+            <div class = "section">
+                <div class = "pure-u-1">
+                    <h1>Police Fatalities of people in different stages of life (2000-2016)</h1>
+    
+                </div>
+    
+                <div class = "pure-u-1-3">
+                    <p class = "body_text">Throughout the years from 2000 to 2016, we can obviously see that <span class = "bold_text">regardless of which stage of life</span>, the <span class = "bold_text">number of <span class = "fatalities_text">fatalities</span></span> of people have been <span class = "bold_text">increasing gradually</span>. <span class = "bold_text">Majority</span> of the victims <span class = "bold_text"><span class = "blood_red">killed</span></span> by police are 
+                        <span class = "bold_text">adults</span>, which is then followed by middle-aged adults, senior adults, teen. Toddler, infant and child are the <span class = "bold_text">minority</span> as they would be less engaged with police in real life. We can also see that despite having the movement <span class = "bold_text">Black Lives Matters </span>formed 
+                    in 2013, there is <span class = "bold_text">no obvious or significant improve</span> in the police fatalities. Number of police fatalities have also <span class = "bold_text">spiked in 2015</span>, it is also reported that many of the victims are <span class = "bold_text">black men</span>.</p>
+                </div>
+                <div class = "pure-u-2-3">
+                    <div id="streamgraph" class = "vis"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id = "vis_container4">
+
+            <div class="section">
+                <div class = "pure-u-1">
+                    <h1>Weapon had by victim </h1>    
+                    <p>From our wordcloud, other than unknown, we can see that <span class = "bold_text">majority</span> of the victims either have a <span class = "bold_text">knife</span> or a <span class = "bold_text">gun</span>. This shows that the <span class = "bold_text">victims are armed</span> and this proves that the murdered 
+                        are indeed <span class = "bold_text">very dangerous</span> and <span class = "bold_text">does not show signs of innocence</span>. These victims may in the end be <span class = "bold_text"><span class = "blood_red">murdered </span></span>by the police due to showing <span class = "bold_text">signs of harming others</span>.
+                    </p>
+                </div>
+    
+                <div class = "pure-u-1">
+                    <div id="wordcloud" class = "vis"></div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        </div>
+
+
+
     </div>
 
     
 
-    <div id="choropleth1" data-aos="flip-left" class="pure-g">
-        <div class = "pure-u-1-2">
-            <div id="choropleth_map"></div>
-        </div>
-
-        <div class = "pure-u-1-2">
-            <p>Lorem Ipsum, sometimes referred to as 'lipsum', is the placeholder text used in design when creating content. It helps designers plan out where the content will sit, without needing to wait for the content to be written and approved. It originally comes from a Latin text, but to today's reader, it's seen as gibberish</p>
-        </div>
-
-    </div>
     
     
 
@@ -53,7 +146,7 @@
 
 
 
-
+    </div>
 </body>
 
 <script type="text/javascript">
