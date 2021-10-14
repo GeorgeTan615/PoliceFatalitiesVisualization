@@ -26,14 +26,22 @@
             "title": "",
             "axis": {
                 "labelAngle": 0,
-                "format": "%e"
+                "format": "%e",
+                "labelFontSize": 12
+
+                
             }
+            
         },
         "y": {
           "aggregate": "count",
           "type": "quantitative",
           "scale": {
             "domain": [0,500]
+          },
+          "axis":{
+            "labelFontSize": 12
+
           },
           "title": ""
         },
@@ -72,14 +80,20 @@
                 "title": "Day",
                 "axis": {
                     "labelAngle": 0,
-                    "format": "%e"
+                    "format": "%e",
+                    "labelFontSize": 15
+
                 }
             },
             "y": {
                 "field": "Date",
                 "timeUnit": "month",
                 "type": "ordinal",
-                "title": "Month"
+                "title": "Month",
+                "axis":{
+                  "labelFontSize": 15
+
+                }
             },
             "color": {
                 "field": "date",
@@ -135,7 +149,10 @@
             "scale": {
               "domain": [0,700]
             },
-            "title": ""
+            "title": "",
+            "axis":{
+              "labelFontSize": 12
+            }
           },
           "color":{"value":"#2500e0"},
           "stroke": {
