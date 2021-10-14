@@ -26,23 +26,12 @@ body{
 }
 
 #streamgraph{
-
-
 	left: 100px;
-
 	width: 90%;
 }
 
 #wordcloud{
-	/*
-	top:0px;
-	bottom: 500px; 
-	left: 0px;
-	right: 200px;
-	height: 2000px;
-	width: 1500px;
-	*/
-	margin-left: 9%;
+	margin-left: 11%;
  
 }
 
@@ -184,6 +173,7 @@ p{
 	width: 1900px;
 	height: 100%;  
 	margin-top:70px;
+	margin-bottom:30px;
 	background: #ffeded;
 
 
