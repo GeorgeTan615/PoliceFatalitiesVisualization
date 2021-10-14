@@ -21,12 +21,14 @@
       "value": 2017,
       "bind": {"input": "range", "min": 2001, "max": 2017, "step": 1}
     }
+
   ],
   "transform": [
     {"filter": "datum.Year > Date_Above"},
     {"filter": "datum.Year < Date_Below"}
   ],
   "layer": [
+  
     {
       "mark": "rect",
       "data": {
@@ -47,7 +49,12 @@
     },
     {
       "params": [
-        {"name": "hover", "select": {"type": "point", "on": "mouseover"}}
+        {"name": "hover", "select": {"type": "point", "on": "mouseover"}},
+            {
+      "name": "grid",
+      "select": "interval",
+      "bind": "scales"
+    }
       ],
       "mark": "area",
       "encoding": {
@@ -55,7 +62,7 @@
           "timeUnit": "yearmonth",
           "field": "Date",
           "title": "Date",
-          "axis": {"domain": false, "format": "%Y", "tickSize": 0}
+          "axis": {"domain": false, "format": "%Y", "tickSize": 0,"labelFontSize":15}
         },
         "y": {
           "aggregate": "count",
@@ -73,7 +80,13 @@
             "legend": null
           },
           "legend": {
-            "title": "Events and Stages of Life","direction":"horizontal", "orient":"top", "labelFontSize": 15,"labelLimit":1000
+            "titleFontSize":18,
+            "titleLimit":1000,
+            "title": "Events and Stages of Life",
+            "direction":"horizontal", 
+            "orient":"bottom", 
+            "labelFontSize": 17,
+            "labelLimit":1000
         }
         },
         "opacity": {"condition": {"param": "hover", "value": 1}, "value": 0.2},
