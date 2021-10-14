@@ -100,7 +100,7 @@
                 "aggregate": "count",
                 "type": "quantitative",
                 "legend": {
-                    "title": "Number of police fatalities","direction":"horizontal", "orient":"bottom","labelFontSize": 15,"titleFontSize":14,          "titleLimit":1000
+                    "title": "Number of police fatalities","direction":"horizontal", "orient":"bottom","labelFontSize": 20,"titleFontSize":20, "titleLimit":1000
 
                 },
                 "scale": {
