@@ -153,7 +153,7 @@
     "mark": {
         "type": "text",
         "font": "Lato",
-        "x": 800,
+        "x": 750,
         "y": 30,
         "fontSize": 18,
         "color":"orangered"
