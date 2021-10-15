@@ -1,177 +1,54 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
-  "background":null,
-  "title": {
-    "text":"Number of police fatalities throughout the days of each month",
-    "anchor": "middle",
-    "fontSize":20,
-    "font":"Lato"
-  },
-  "data": {
-      "url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/data/updated_police.csv"
-  },
+    "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+    "background":null,
+    "title": {
+      "text":"Number of police fatalities throughout the days of each month",
+      "anchor": "middle",
+      "fontSize":20,
+      "font":"Lato"
+    },
+    "data": {
+        "url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/data/updated_police.csv"
+    },
 
-  "spacing": 20,
-  "bounds": "flush",
-  "params": [
-    {"name": "highlight", "select": "point"}
-  ],
-
-  "vconcat": [
-    {
-    "width":800,
-    "mark": "bar",
-    "height": 80,
-    "encoding": {
-      "x": {
-          "field": "Date",
-          "timeUnit": "date",
-          "type": "ordinal",
-          "title": "",
-          "axis": {
-              "labelAngle": 0,
-              "format": "%e",
-              "labelFontSize": 12
-
-              
-          }
-          
-      },
-      "y": {
-        "aggregate": "count",
-        "type": "quantitative",
-        "scale": {
-          "domain": [0,500]
-        },
-        "axis":{
-          "labelFontSize": 12
-
-        },
-        "title": ""
-      },
-      "stroke": {
-        "condition": {
-          "param": "highlight",
-          "empty": false,
-          "value": "black"
-        },
-        "value": null
-      },
-      "opacity": {
-        "condition": {"param": "highlight", "value": 1},
-        "value": 0.5
-      },
-      "order": {"condition": {"param": "highlight", "value": 1}, "value": 0},
-      "color":{"value":"#2500e0"},
-      "tooltip": [
-          {"field": "Day", "type" : "nominal", "title":"Day"}, 
-          {"field": "date", "aggregate": "count", "type": "quantitative","title":"Total Number of Police Fatalities"}
-        ]
-    }
-  }, {
-    
-    "spacing": 15,
+    "spacing": 20,
     "bounds": "flush",
+    "params": [
+      {"name": "highlight", "select": "point"}
+    ],
 
-    "hconcat": [{
+    "vconcat": [
+      {
       "width":800,
-      "height":400,
-      "mark": "rect",
-      "encoding": {
-          "x": {
-              "field": "Date",
-              "timeUnit": "date",
-              "type": "ordinal",
-              "title": "Day",
-              "axis": {
-                  "labelAngle": 0,
-                  "format": "%e",
-                  "labelFontSize": 15,
-                  "labelFont":"Lato",
-                  "titleFont":"Lato"
-
-              }
-          },
-          "y": {
-              "field": "Date",
-              "timeUnit": "month",
-              "type": "ordinal",
-              "title": "Month",
-              "axis":{
-                "labelFontSize": 15,
-                "labelFont":"Lato",
-                "titleFont":"Lato"
-
-              }
-          },
-          "color": {
-              "field": "date",
-              "aggregate": "count",
-              "type": "quantitative",
-              "legend": {
-                  "title": "Number of police fatalities",
-                  "direction":"horizontal", 
-                  "orient":"bottom",
-                  "labelFontSize": 20,
-                  "titleFontSize":20, 
-                  "titleLimit":1000,
-                  "titleFont":"Lato",
-                  "labelFont":"Lato"
-
-              },
-              "scale": {
-                  "type": "threshold",
-                  "domain": [10, 20, 30, 40,50],
-                  "range": ["#feebe2", "#fcc5c0", "#fa9fb5", "#f768a1","#c51b8a","#7a0177"]
-                  }
-          },
-          "stroke": {
-            "condition": {
-              "param": "highlight",
-              "empty": false,
-              "value": "black"
-            },
-            "value": null
-          },
-          "opacity": {
-            "condition": {"param": "highlight", "value": 1},
-            "value": 0.5
-          },
-          "order": {"condition": {"param": "highlight", "value": 1}, "value": 0},
-          "tooltip": [
-              {"field": "Day", "type" : "nominal", "title":"Day"}, 
-              {"timeUnit":"month","field":"Month", "type" : "nominal", "title":"Month"},       
-              {"field": "date", "aggregate": "count", "type": "quantitative","title":"Number of Police Fatalities"}
-            ]
-  
-      }
-    }, 
-    {
-      
       "mark": "bar",
-      "height":400,
-      "width":60,
-
+      "height": 80,
       "encoding": {
-          "y": {
-              "field": "Date",
-              "timeUnit": "month",
-              "type": "ordinal",
-              "title": "",
-              "axis": null
-          },
         "x": {
+            "field": "Date",
+            "timeUnit": "date",
+            "type": "ordinal",
+            "title": "",
+            "axis": {
+                "labelAngle": 0,
+                "format": "%e",
+                "labelFontSize": 12
+
+                
+            }
+            
+        },
+        "y": {
           "aggregate": "count",
           "type": "quantitative",
           "scale": {
-            "domain": [0,700]
+            "domain": [0,500]
           },
-          "title": "",
           "axis":{
             "labelFontSize": 12
-          }
+
+          },
+          "title": ""
         },
-        "color":{"value":"#2500e0"},
         "stroke": {
           "condition": {
             "param": "highlight",
@@ -185,18 +62,142 @@
           "value": 0.5
         },
         "order": {"condition": {"param": "highlight", "value": 1}, "value": 0},
-
+        "color":{"value":"#2500e0"},
         "tooltip": [
-          {"timeUnit":"month","field":"Month", "type" : "nominal", "title":"Month"},       
-          {"field": "date", "aggregate": "count", "type": "quantitative","title":"Total Number of Police Fatalities"}
-        ]
+            {"field": "Day", "type" : "nominal", "title":"Day"}, 
+            {"field": "date", "aggregate": "count", "type": "quantitative","title":"Total Number of Police Fatalities"}
+          ]
+      }
+    }, {
+      
+      "spacing": 15,
+      "bounds": "flush",
+
+      "hconcat": [{
+        "width":800,
+        "height":400,
+        "mark": "rect",
+        "encoding": {
+            "x": {
+                "field": "Date",
+                "timeUnit": "date",
+                "type": "ordinal",
+                "title": "Day",
+                "axis": {
+                    "labelAngle": 0,
+                    "format": "%e",
+                    "labelFontSize": 15,
+                    "labelFont":"Lato",
+                    "titleFont":"Lato"
+
+                }
+            },
+            "y": {
+                "field": "Date",
+                "timeUnit": "month",
+                "type": "ordinal",
+                "title": "Month",
+                "axis":{
+                  "labelFontSize": 15,
+                  "labelFont":"Lato",
+                  "titleFont":"Lato"
+
+                }
+            },
+            "color": {
+                "field": "date",
+                "aggregate": "count",
+                "type": "quantitative",
+                "legend": {
+                    "title": "Number of police fatalities",
+                    "direction":"horizontal", 
+                    "orient":"bottom",
+                    "labelFontSize": 20,
+                    "titleFontSize":20, 
+                    "titleLimit":1000,
+                    "titleFont":"Lato",
+                    "labelFont":"Lato"
+
+                },
+                "scale": {
+                    "type": "threshold",
+                    "domain": [10, 20, 30, 40,50],
+                    "range": ["#feebe2", "#fcc5c0", "#fa9fb5", "#f768a1","#c51b8a","#7a0177"]
+                    }
+            },
+            "stroke": {
+              "condition": {
+                "param": "highlight",
+                "empty": false,
+                "value": "black"
+              },
+              "value": null
+            },
+            "opacity": {
+              "condition": {"param": "highlight", "value": 1},
+              "value": 0.5
+            },
+            "order": {"condition": {"param": "highlight", "value": 1}, "value": 0},
+            "tooltip": [
+                {"field": "Day", "type" : "nominal", "title":"Day"}, 
+                {"timeUnit":"month","field":"Month", "type" : "nominal", "title":"Month"},       
+                {"field": "date", "aggregate": "count", "type": "quantitative","title":"Number of Police Fatalities"}
+              ]
+    
+        }
+      }, 
+      {
+        
+        "mark": "bar",
+        "height":400,
+        "width":60,
+
+        "encoding": {
+            "y": {
+                "field": "Date",
+                "timeUnit": "month",
+                "type": "ordinal",
+                "title": "",
+                "axis": null
+            },
+          "x": {
+            "aggregate": "count",
+            "type": "quantitative",
+            "scale": {
+              "domain": [0,700]
+            },
+            "title": "",
+            "axis":{
+              "labelFontSize": 12
+            }
+          },
+          "color":{"value":"#2500e0"},
+          "stroke": {
+            "condition": {
+              "param": "highlight",
+              "empty": false,
+              "value": "black"
+            },
+            "value": null
+          },
+          "opacity": {
+            "condition": {"param": "highlight", "value": 1},
+            "value": 0.5
+          },
+          "order": {"condition": {"param": "highlight", "value": 1}, "value": 0},
+
+          "tooltip": [
+            {"timeUnit":"month","field":"Month", "type" : "nominal", "title":"Month"},       
+            {"field": "date", "aggregate": "count", "type": "quantitative","title":"Total Number of Police Fatalities"}
+          ]
+        }
+      }
+    ]
+    }],
+    "config": {
+      "view": {
+        "stroke": "transparent"
       }
     }
-  ]
-  }],
-  "config": {
-    "view": {
-      "stroke": "transparent"
-    }
   }
-} 
+  
