@@ -125,7 +125,7 @@
       "width": "container",
 
       "height": 600,
-      "projection": {"type": "equirectangular"},
+      "projection": {"type": "albersUsa"},
         
       "layer": [
         {
@@ -184,46 +184,6 @@
       {
         "layer": [
           {
-            "transform": [
-              {
-                "window": [
-                  {
-                    "op": "rank",
-                    "as": "ranking"
-                  }
-                ],
-                "sort": [
-                  {
-                    "field": "Number_of_Fatalities",
-                    "order": "descending"
-                  }
-                ]
-              },
-              {
-                "filter": "datum.ranking == 1"
-              },
-              {
-                "calculate": "datum['States'] + ' has the highest number of police fatalities per 1 mil population'",
-                "as": "text_annotation"
-              }
-            ],
-            "mark": {
-              "type": "text",
-              "align": "left",
-              "dx": 4,
-              "fill": "black",
-              "fontWeight":"bold",
-              "fontSize": 25,
-              "color":"red",
-              "font":"Lato"
-            },
-            "encoding": {
-              "text": {
-                "field": "text_annotation"
-              }
-            }
-          },
-          {
             "layer":[
               {
                 "data": 
@@ -238,7 +198,8 @@
                     "field": "POPESTIMATE2019",
                     "title":"Population",
                     "type": "quantitative",
-                    "scale": {"domain": [0, 30000000]},
+                    "scale": {"domain": [0, 30000000], "range": [100, 3000]},
+
                     "legend": {
                       "title": "Population",
                       "titleFontSize":20,
