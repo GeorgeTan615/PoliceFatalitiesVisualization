@@ -23,7 +23,7 @@
             },
             {
               "type": "formula", "as": "weight",
-              "expr": "if(datum.text=='UNKNOWN' || datum.text == 'GUN' || datum.text == 'KNIFE', 700, 300) "
+              "expr": "if(datum.text=='UNKNOWN' || datum.text == 'GUN' || datum.text == 'KNIFE', 800, 300) "
             }
           ]
         }
