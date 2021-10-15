@@ -63,13 +63,13 @@
           "transform": [
             {
               "type": "wordcloud",
-              "size": [1200, 500],
+              "size": [1700, 600],
               "text": {"field": "text"},
               "rotate": {"field": "datum.angle"},
               "font": "Helvetica Neue, Arial",
               "fontSize": {"field": "datum.count"},
               "fontWeight": {"field": "datum.weight"},
-              "fontSizeRange": [25, 75],
+              "fontSizeRange": [25, 90],
               "padding": 2
             }
           ]
