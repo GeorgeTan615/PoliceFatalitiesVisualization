@@ -14,7 +14,11 @@
     "spacing": 20,
     "bounds": "flush",
     "params": [
-      {"name": "highlight", "select": "point"}
+      {"name": "highlight", "select": "point"},            
+      {
+        "name": "hover",
+        "select": {"type": "point", "on": "mouseover"}
+      }
     ],
 
     "vconcat": [
@@ -50,15 +54,21 @@
           "title": ""
         },
         "stroke": {
-          "condition": {
+          "condition": [{
             "param": "highlight",
             "empty": false,
             "value": "black"
           },
+          {
+            "param": "hover",
+            "empty": false,
+            "value": "black"
+          }
+        ],
           "value": null
         },
         "opacity": {
-          "condition": {"param": "highlight", "value": 1},
+          "condition": [{"param": "highlight", "value": 1},{"param": "hover", "value": 5}],
           "value": 0.5
         },
         "order": {"condition": {"param": "highlight", "value": 1}, "value": 0},
@@ -125,16 +135,23 @@
                     "range": ["#feebe2", "#fcc5c0", "#fa9fb5", "#f768a1","#c51b8a","#7a0177"]
                     }
             },
+            
             "stroke": {
-              "condition": {
+              "condition": [{
                 "param": "highlight",
                 "empty": false,
                 "value": "black"
               },
+              {
+                "param": "hover",
+                "empty": false,
+                "value": "black"
+              }
+            ],
               "value": null
             },
             "opacity": {
-              "condition": {"param": "highlight", "value": 1},
+              "condition": [{"param": "highlight", "value": 1},{"param": "hover", "value": 5}],
               "value": 0.5
             },
             "order": {"condition": {"param": "highlight", "value": 1}, "value": 0},
@@ -173,15 +190,21 @@
           },
           "color":{"value":"#2500e0"},
           "stroke": {
-            "condition": {
+            "condition": [{
               "param": "highlight",
               "empty": false,
               "value": "black"
             },
+            {
+              "param": "hover",
+              "empty": false,
+              "value": "black"
+            }
+          ],
             "value": null
           },
           "opacity": {
-            "condition": {"param": "highlight", "value": 1},
+            "condition": [{"param": "highlight", "value": 1},{"param": "hover", "value": 5}],
             "value": 0.5
           },
           "order": {"condition": {"param": "highlight", "value": 1}, "value": 0},
