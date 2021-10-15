@@ -16,17 +16,11 @@
       "name": "Date_Above",
       "value": 0,
       "bind": {"input": "range", "min": 1999, "max": 2015, "step": 1}
-    },
-    {
-      "name": "Date_Below",
-      "value": 2017,
-      "bind": {"input": "range", "min": 2001, "max": 2017, "step": 1}
     }
 
   ],
   "transform": [
-    {"filter": "datum.Year > Date_Above"},
-    {"filter": "datum.Year < Date_Below"}
+    {"filter": "datum.Year > Date_Above"}
   ],
   "layer": [
   
@@ -67,12 +61,7 @@
     },
     {
       "params": [
-        {"name": "hover", "select": {"type": "point", "on": "mouseover"}},
-            {
-      "name": "grid",
-      "select": "interval",
-      "bind": "scales"
-    }
+        {"name": "hover", "select": {"type": "point", "on": "mouseover"}}
       ],
       "mark": "area",
       "encoding": {
@@ -137,8 +126,9 @@
     {
       "transform": [
         {
-            "filter": "datum.Year== 2013"
-        }
+          "filter": "datum.Year== 2007 "
+      }
+
     ],
     "mark": {
         "type": "text",
@@ -157,7 +147,7 @@
     {
       "transform": [
         {
-            "filter": "datum.Year== 2015"
+            "filter": "datum.Year== 2007"
         }
     ],
     "mark": {
