@@ -4,7 +4,8 @@
   "title": {
     "text":"Police Fatalities of people in different stages of life (2000 - 2016)",
     "anchor": "middle",
-    "fontSize":20},
+    "fontSize":20,
+    "font":"Lato"},
   "background":null,
   "height": 500,
   "data": {
@@ -35,8 +36,7 @@
         "values": [
           {
             "start": "2013",
-            "end": "2014",
-            "event": "Black Live Matters was formed in 2013"
+            "end": "2014"
           }
         ],
         "format": {"parse": {"start": "date:'%Y'", "end": "date:'%Y'"}}
@@ -44,7 +44,25 @@
       "encoding": {
         "x": {"field": "start", "timeUnit": "year"},
         "x2": {"field": "end", "timeUnit": "year"},
-        "color": {"field": "event", "type": "nominal"}
+        "color" : {"value":"#a9a9b0"}
+
+      }
+    },
+    {
+      "mark": "rect",
+      "data": {
+        "values": [
+          {
+            "start": "2015",
+            "end": "2016"
+          }
+        ],
+        "format": {"parse": {"start": "date:'%Y'", "end": "date:'%Y'"}}
+      },
+      "encoding": {
+        "x": {"field": "start", "timeUnit": "year"},
+        "x2": {"field": "end", "timeUnit": "year"},
+        "color" : {"value":"#ff8886"}
       }
     },
     {
@@ -62,7 +80,7 @@
           "timeUnit": "yearmonth",
           "field": "Date",
           "title": "Date",
-          "axis": {"domain": false, "format": "%Y", "tickSize": 0,"labelFontSize":15}
+          "axis": {"domain": false, "format": "%Y", "tickSize": 0,"labelFontSize":15,"labelFont":"Lato","titleFont":"Lato"}
         },
         "y": {
           "aggregate": "count",
@@ -72,7 +90,10 @@
         },
         "color": {
           "field": "Stages of Life",
-          "scale": {"scheme": "set1"},
+          "scale": {
+            "domain": ["Adult","Middle Age Adult","Senior Adult","Teen","Toddler","Infant","Child"],
+            "range": ["#b22222","#ff2400","#Ff8303","#3792cb","#45b6fe","#6ac5f3","#8fd3fe"]
+          },
           "condition": {
             "param": "hover",
             "field": "Stages of Life",
@@ -86,7 +107,9 @@
             "direction":"horizontal", 
             "orient":"bottom", 
             "labelFontSize": 17,
-            "labelLimit":1000
+            "labelLimit":1000,
+            "titleFont":"Lato",
+            "labelFont":"Lato"
         }
         },
         "opacity": {"condition": {"param": "hover", "value": 1}, "value": 0.2},
@@ -110,6 +133,48 @@
           }
         ]
       }
+    },
+    {
+      "transform": [
+        {
+            "filter": "datum.Year== 2013"
+        }
+    ],
+    "mark": {
+        "type": "text",
+        "font": "Lato",
+        "x": 700,
+        "y": 140,
+        "fontSize": 18,
+        "color":"darkslategrey"
+    },
+    "encoding": {
+        "text": {
+            "value": "Black Lives Matter was formed in 2013"
+        }
     }
+    },
+    {
+      "transform": [
+        {
+            "filter": "datum.Year== 2015"
+        }
+    ],
+    "mark": {
+        "type": "text",
+        "font": "Lato",
+        "x": 800,
+        "y": 30,
+        "fontSize": 18,
+        "color":"orangered"
+
+    },
+    "encoding": {
+        "text": {
+            "value": "Number of Police Fatalities start to spike in 2015"
+        }
+    }
+    }
+
   ]
 }
