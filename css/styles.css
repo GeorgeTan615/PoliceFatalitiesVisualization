@@ -32,7 +32,8 @@ body{
 }
 
 #wordcloud{
-	margin-left: 13%;
+	margin-top:-5%;
+	margin-left: -3%;
  
 }
 
@@ -69,14 +70,12 @@ body{
 
 .subtitle {
 	font-family: 'Oswald', sans-serif;
-
 	text-align: center;
 	margin: 2rem;
 	align-self: center;
 }
 
 .police_text{
-	/*color: #7cb4ec;*/
 	color: #2500e0;
 
 }
@@ -95,7 +94,7 @@ h1{
 p{
     font-size: 25px;
     text-align: justify;
-    line-height: 150%;
+    line-height: 170%;
 	width:100%;
 	padding-right:200px;
 	font-family: 'Lato', sans-serif;
@@ -120,14 +119,14 @@ p{
 	margin-top:20px;
 }
 
-/*
-.body_text{
-	padding-top:0px;
+
+.body_text2{
+	padding-top:60px;
 	padding-bottom:0px;
 
 
 }
-*/
+
 
 .section{
 	padding-top:0px;
