@@ -129,6 +129,12 @@
         
       "layer": [
         {
+          "params": [
+            {
+              "name": "highlight",
+              "select": {"type": "point", "on": "mouseover"}
+            }
+          ],
           "data": {
               "url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/topojson/US_States_SOVI_Infographics.json",
               "format": {"type": "topojson", "feature": "US_States_SOVI_Infographics"}
@@ -164,16 +170,33 @@
                     "range": ["#feedde", "#fdd0a2", "#fdae6b", "#fd8d3c","#e6550d","#a63603"]
                     },
                     "legend": {
-                      "title": "Number of Police Fatalities per 1 million population",
+                      
+                      "title": "Police Fatalities per 1 million population",
                       "titleFontSize":20,
+                      "titleAnchor":"start",
                       "direction":"horizontal", 
                       "orient":"bottom", 
-                      "labelFontSize": 20,
+                      "labelFontSize": 18,
                       "titleLimit":1000,
                       "titleFont":"Lato",
                       "labelFont":"Lato"
                   }
                 },
+                "strokeWidth": {
+                  "condition": [
+                    {
+                      "param": "highlight",
+                      "empty": false,
+                      "value": 2
+                    }
+                  ],
+                  "value": 0.3
+                },
+                "opacity": {
+                  "condition": {"param": "highlight", "value": 1},
+                  "value": 0.7
+                },
+
             "tooltip": [
               {"field": "properties.STATE_NAME", "type": "nominal", "title": "States"},
               {"field": "Number_of_Fatalities", "type": "nominal", "title": "Number of Police Fatalities"},
@@ -220,8 +243,8 @@
                     "legend": {
                       "title": "Population",
                       "titleFontSize":20,
-                      "direction":"horizontal", 
-                      "orient":"bottom", 
+                      "direction":"vertical", 
+                      "orient":"bottom-right", 
                       "labelFontSize": 20,
                       "titleLimit":1000,
                       "titleFont":"Lato",
