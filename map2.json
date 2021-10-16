@@ -204,6 +204,72 @@
             ]
           }
         },
+        {
+          "transform": [
+            {
+                "filter": "datum.States== 'Wyoming'"
+            }
+        ],
+        "mark": {
+            "type": "text",
+            "font": "Lato",
+            "x": 635,
+            "y": 182,
+            "fontSize": 18,
+            "fontWeight" :"bolder",
+            "color":"#daf0ff"
+    
+        },
+        "encoding": {
+            "text": {
+                "value": "Wyoming"
+            }
+        }
+        },
+        {
+          "transform": [
+            {
+                "filter": "datum.States== 'Alaska'"
+            }
+        ],
+        "mark": {
+            "type": "text",
+            "font": "Lato",
+            "x": 434,
+            "y": 515,
+            "fontSize": 18,
+            "fontWeight" :"bolder",
+            "color":"#daf0ff"
+    
+        },
+        "encoding": {
+            "text": {
+                "value": "Alaska"
+            }
+        }
+        },
+        {
+          "transform": [
+            {
+                "filter": "datum.States== 'California'"
+            }
+        ],
+        "mark": {
+            "type": "text",
+            "font": "Lato",
+            "x": 420,
+            "y": 330,
+            "fontSize": 18,
+            "fontWeight" :"bolder",
+            "color":"#daf0ff"
+    
+        },
+        "encoding": {
+            "text": {
+                "value": "California"
+            }
+        }
+        },
       {
         "layer": [
           {
