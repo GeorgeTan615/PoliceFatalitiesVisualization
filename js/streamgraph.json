@@ -1,0 +1,170 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "title": {
+    "text":"Police Fatalities of people in different stages of life (2000 - 2016)",
+    "anchor": "middle",
+    "fontSize":20,
+    "font":"Lato"},
+  "background":null,
+  "height": 500,
+  "data": {
+    "url": "https://raw.githubusercontent.com/GeorgeTan615/PoliceFatalitiesVisualization/main/data/updated_police.csv"
+  },
+  "params": [
+    {
+      "name": "DateAbove",
+      "value": 0,
+      "bind": {"input": "range", "min": 1999, "max": 2015, "step": 1, "name":"Date Above: "}
+    }
+
+  ],
+  "transform": [
+    {"filter": "datum.Year > DateAbove"}
+  ],
+  "layer": [
+  
+    {
+      "mark": "rect",
+      "data": {
+        "values": [
+          {
+            "start": "2013",
+            "end": "2014"
+          }
+        ],
+        "format": {"parse": {"start": "date:'%Y'", "end": "date:'%Y'"}}
+      },
+      "encoding": {
+        "x": {"field": "start", "timeUnit": "year"},
+        "x2": {"field": "end", "timeUnit": "year"},
+        "color" : {"value":"#a9a9b0"}
+
+      }
+    },
+    {
+      "mark": "rect",
+      "data": {
+        "values": [
+          {
+            "start": "2015",
+            "end": "2016"
+          }
+        ],
+        "format": {"parse": {"start": "date:'%Y'", "end": "date:'%Y'"}}
+      },
+      "encoding": {
+        "x": {"field": "start", "timeUnit": "year"},
+        "x2": {"field": "end", "timeUnit": "year"},
+        "color" : {"value":"#ff8886"}
+      }
+    },
+    {
+      "params": [
+        {"name": "hover", "select": {"type": "point", "on": "mouseover"}}
+      ],
+      "mark": "area",
+      "encoding": {
+        "x": {
+          "timeUnit": "yearmonth",
+          "field": "Date",
+          "title": "Date",
+          "axis": {"domain": false, "grid":true,"format": "%Y", "tickSize": 0,"labelFontSize":15,"labelFont":"Lato","titleFont":"Lato"}
+        },
+        "y": {
+          "aggregate": "count",
+          "field": "Stages of Life",
+          "axis": null,
+          "stack": "center"
+        },
+        "color": {
+          "field": "Stages of Life",
+          "scale": {
+            "domain": ["Adult","Middle Age Adult","Senior Adult","Teen","Toddler","Infant","Child"],
+            "range": ["#b22222","#ff2400","#Ff8303","#3792cb","#45b6fe","#6ac5f3","#8fd3fe"]
+          },
+          "condition": {
+            "param": "hover",
+            "field": "Stages of Life",
+            "type": "nominal",
+            "legend": null
+          },
+          "legend": {
+            "titleFontSize":18,
+            "titleLimit":1000,
+            "title": "Events and Stages of Life",
+            "direction":"horizontal", 
+            "orient":"bottom", 
+            "labelFontSize": 17,
+            "labelLimit":1000,
+            "titleFont":"Lato",
+            "labelFont":"Lato"
+        }
+        },
+        "opacity": {"condition": {"param": "hover", "value": 1}, "value": 0.2},
+        "tooltip": [
+          {
+            "field": "Stages of Life",
+            "type": "nominal",
+            "title": "Stages of Life"
+          },
+          {
+            "timeUnit": "yearmonth",
+            "field": "Date",
+            "type": "nominal",
+            "title": "Date"
+          },
+          {
+            "field": "Stages of Life",
+            "aggregate": "count",
+            "type": "quantitative",
+            "title": "Number of Police Fatalities"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.Year== 2007"
+      }
+
+    ],
+    "mark": {
+        "type": "text",
+        "font": "Lato",
+        "x": 700,
+        "y": 140,
+        "fontSize": 18,
+        "color":"darkslategrey"
+    },
+    "encoding": {
+        "text": {
+            "value": "Black Lives Matter was formed in 2013"
+        }
+    }
+    },
+    {
+      "transform": [
+        {
+            "filter": "datum.Year== 2007"
+        }
+    ],
+    "mark": {
+        "type": "text",
+        "font": "Lato",
+        "x": 740,
+        "y": 30,
+        "fontSize": 18,
+        "color":"#b22222"
+
+    },
+    "encoding": {
+        "text": {
+            "value": "Number of Police Fatalities start to spike in 2015"
+        }
+    }
+    }
+
+  ]
+}
