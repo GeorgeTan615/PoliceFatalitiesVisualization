@@ -7,10 +7,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
-    <script src = "choropleth_map.js"></script>
-    <script src = "wordcloud.js"></script>
-    <script src = "heatmap.js"></script>
-    <script src = "streamgraph.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
@@ -149,6 +145,24 @@
 
 <script type="text/javascript">
     AOS.init();
+
+    var vg_1 = "js/heatmap2.json";
+    vegaEmbed("#heatmap", vg_1,{"actions": false}).then(function(result) {
+    }).catch(console.error);
+
+    var vg_2 = "js/map2.json";
+    vegaEmbed("#choropleth_map", vg_2,{"actions": false}).then(function(result) {
+    }).catch(console.error);
+
+    var vg_3 = "js/streamgraph.json";
+    vegaEmbed("#streamgraph", vg_3,{"actions": false}).then(function(result) {
+    }).catch(console.error);
+
+    var vg_4 = "js/wordcloud.json";
+    vegaEmbed("#wordcloud", vg_4,{"actions": false}).then(function(result) {
+    }).catch(console.error);
+
+
 
 </script>
 </html>
