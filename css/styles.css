@@ -1,6 +1,7 @@
 
 body{
-    max-width: 1100px;
+    min-width: 1600px;
+	max-width:1600px;
     margin: auto;
     left: 1%;
     right: 1%;
@@ -13,7 +14,7 @@ body{
 	left:1%;
 	right:1%;
     margin: auto;
-    padding: 50px;
+    /*padding: 50px;*/
     padding-top: 10px;
 }
 
@@ -27,7 +28,7 @@ body{
 }
 
 #wordcloud{
-	margin-top:-5%;
+	margin-top:-2%;
 	margin-left: -3%;
  
 }
@@ -123,7 +124,8 @@ p{
 	border-radius: 25px;
 	border: 2px solid #2500e0;
 	padding: 50px; 
-	width: 1900px;
+	min-width: 1600px;
+	max-width:1600px;
 	height: 100%;
 	margin-top:50px;
 	background: #daf0ff;
@@ -133,7 +135,8 @@ p{
 	border-radius: 25px;
 	border: 2px solid #bb012d;
 	padding: 50px; 
-	width: 1900px;
+	min-width: 1600px;
+	max-width:1600px;
 	height: 100%;  
 	margin-top:70px;
 	background: #ffeded;
@@ -143,7 +146,8 @@ p{
 	border-radius: 25px;
 	border: 2px solid #2500e0;
 	padding: 50px; 
-	width: 1900px;
+	min-width: 1600px;
+	max-width:1600px;
 	height: 100%;  
 	margin-top:70px;
 	background: #daf0ff;
@@ -153,7 +157,8 @@ p{
 	border-radius: 25px;
 	border: 2px solid #bb012d;
 	padding: 50px; 
-	width: 1900px;
+	min-width: 1600px;
+	max-width:1600px;
 	height: 100%;  
 	margin-top:70px;
 	margin-bottom:30px;
